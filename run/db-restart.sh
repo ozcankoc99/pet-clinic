@@ -1,1 +1,1 @@
-(cd devops/axaDevEnv/ && docker-compose down && docker-compose up)
+(cd devops/devDocker/ && docker-compose down && docker-compose up)
