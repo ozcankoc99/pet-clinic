@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  spring_boot_be:
+    image: springcommunity/spring-petclinic-rest:2.1.5 
+    ports:
+      - "9966:9966"
+    environment: 
+      TZ: "Europe/Istanbul"
+    # volumes:
+    #   - mssql_2017_sqlserver:/var/opt/sqlserver
+    #   - mssql_2017_data:/var/opt/mssql
+
+# volumes:
+#   mssql_2017_data:
+#   mssql_2017_sqlserver:
+
+
+# networks:
+#   pet_clinic_nw:
+#     enable_ipv6: true
+#     ipam:
+#       config:
+#         - subnet: 10.73.73.0/16
+#         - subnet: "2001:3984:3989::/64"
