@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { EmitEvent } from './emit-event';
-import { Events } from './events';
+import { EventTypes } from './event-types';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +10,7 @@ import { Events } from './events';
 export class EventBusService {
   private subject$ = new Subject<EmitEvent>();
 
-  on(event: Events, action: any): Subscription {
+  on(event: EventTypes, action: any): Subscription {
     return this.subject$
       .pipe(
         filter((e: EmitEvent) => e.name === event),
@@ -23,7 +23,7 @@ export class EventBusService {
     this.subject$.next(event);
   }
 
-  emit(name: Events, value?: any) {
+  emit(name: EventTypes, value?: any) {
     this.emitEvent(new EmitEvent(name, value));
   }
 }

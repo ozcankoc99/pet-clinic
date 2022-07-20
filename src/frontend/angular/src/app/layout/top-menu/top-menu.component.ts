@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventBusService } from 'src/app/shared/event-bus.service';
-import { Events } from 'src/app/shared/events';
+import { EventTypes } from 'src/app/shared/event-types';
 
 @Component({
   selector: 'app-top-menu',
@@ -13,6 +13,6 @@ export class TopMenuComponent implements OnInit {
   ngOnInit(): void {}
 
   toggleSidebar() {
-    this.eventBusService.emit(Events.ToggleSideBar, null);
+    this.eventBusService.emit(EventTypes.ToggleSideBar, null);
   }
 }

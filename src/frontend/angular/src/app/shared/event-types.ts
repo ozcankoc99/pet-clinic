@@ -1,4 +1,4 @@
-export enum Events {
+export enum EventTypes {
   CustomerSelected,
   ToggleSideBar,
 }

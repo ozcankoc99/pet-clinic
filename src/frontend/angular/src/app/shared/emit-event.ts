@@ -1,5 +1,5 @@
-import { Events } from './events';
+import { EventTypes } from './event-types';
 
 export class EmitEvent {
-  constructor(public name: Events, public value?: any) {}
+  constructor(public name: EventTypes, public value?: any) {}
 }
