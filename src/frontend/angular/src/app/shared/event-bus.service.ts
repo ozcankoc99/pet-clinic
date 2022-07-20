@@ -19,7 +19,11 @@ export class EventBusService {
       .subscribe(action);
   }
 
-  emit(event: EmitEvent) {
+  emitEvent(event: EmitEvent) {
     this.subject$.next(event);
+  }
+
+  emit(name: Events, value?: any) {
+    this.emitEvent(new EmitEvent(name, value));
   }
 }
