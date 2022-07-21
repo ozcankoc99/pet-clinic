@@ -11,6 +11,8 @@ import { TopMenuNotificationsComponent } from './top-menu/top-menu-notifications
 import { TopMenuMessagesComponent } from './top-menu/top-menu-messages/top-menu-messages.component';
 import { TopMenuSearchComponent } from './top-menu/top-menu-search/top-menu-search.component';
 import { TopMenuNavComponent } from './top-menu/top-menu-nav/top-menu-nav.component';
+import { SidebarLogoComponent } from './sidebar/sidebar-logo/sidebar-logo.component';
+import { SidebarUserInfoComponent } from './sidebar/sidebar-user-info/sidebar-user-info.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { TopMenuNavComponent } from './top-menu/top-menu-nav/top-menu-nav.compon
     TopMenuMessagesComponent,
     TopMenuSearchComponent,
     TopMenuNavComponent,
+    SidebarLogoComponent,
+    SidebarUserInfoComponent,
   ],
   imports: [CommonModule, LayoutRoutingModule],
 })
