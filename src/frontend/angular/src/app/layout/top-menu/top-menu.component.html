@@ -16,7 +16,13 @@
       <app-top-menu-notifications></app-top-menu-notifications>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+      <a
+        class="nav-link"
+        data-widget="fullscreen"
+        (click)="$event.preventDefault()"
+        href="#"
+        role="button"
+      >
         <span class="fas fa-expand-arrows-alt"></span>
       </a>
     </li>
