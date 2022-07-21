@@ -11,16 +11,17 @@ import { EventTypes } from 'src/app/shared/event-types';
 export class SidebarComponent implements OnInit {
   isCollapsed: boolean = false;
   constructor(
-    private eventBusService: EventBusService,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private eventBusService: EventBusService
   ) {}
 
   ngOnInit(): void {
     this.eventBusService.on(EventTypes.ToggleSideBar, (_: any) => {
       this.isCollapsed = !this.isCollapsed;
-      this.document.body.classList.toggle('sidebar-collapse');
-      this.document.body.classList.toggle('sidebar-mini');
-
+      const toRemove = this.isCollapsed ? 'sidebar-collapse' : 'sidebar-mini';
+      const toAdd = this.isCollapsed ? 'sidebar-mini' : 'sidebar-collapse';
+      this.document.body.classList.remove(toRemove);
+      this.document.body.classList.add(toAdd);
       console.log(
         '🚀 ~ file: sidebar.component.ts ~ line 17 ~ SidebarComponent ~ this.eventBusService.on ~ this.isCollapsed',
         this.isCollapsed
