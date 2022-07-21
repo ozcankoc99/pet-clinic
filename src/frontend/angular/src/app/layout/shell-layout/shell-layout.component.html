@@ -1,10 +1,11 @@
-<div class="wrapper d-flex align-items-stretch">
+<div class="wrapper">
+  <app-top-menu></app-top-menu>
   <app-sidebar></app-sidebar>
-
-  <!-- Page Content  -->
-  <div id="content" class="p-4 p-md-5">
-    <app-top-menu></app-top-menu>
-
-    <router-outlet></router-outlet>
+  <div class="content-wrapper">
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5">
+      <router-outlet></router-outlet>
+    </div>
   </div>
+  <app-footer></app-footer>
 </div>
