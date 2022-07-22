@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { EmitEvent } from './emit-event';
-import { EventTypes } from './event-types';
+import { EmitEvent } from '../model/emit-event';
+import { EventTypes } from '../model/event-types';
 
 @Injectable({
   providedIn: 'root',

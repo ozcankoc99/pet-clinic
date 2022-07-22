@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EventBusService } from 'src/app/shared/event-bus.service';
-import { EventTypes } from 'src/app/shared/event-types';
+import { EventTypes } from 'src/app/shared/model/event-types';
+import { EventBusService } from 'src/app/shared/services/event-bus.service';
 
 @Component({
   selector: 'app-top-menu-nav',
