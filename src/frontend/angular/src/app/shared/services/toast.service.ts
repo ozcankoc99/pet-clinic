@@ -19,10 +19,7 @@ export class ToastService {
   }
   open(message: string, type = 'success', duration = 5000) {
     console.log(
-      "🚀 ~ file: toast.service.ts ~ line 21 ~ ToastService ~ open ~ message: string, type = 'success', duration = 5000",
-      message,
-      type,
-      duration
+      `🚀 ~ file: toast.service.ts ~ line 21 ~ ToastService ~ open ~ message: ${message}, type = ${type}, duration = ${duration}`
     );
     // this.zone.run(() => {
     //   this.snackBar.open(message, '', {
