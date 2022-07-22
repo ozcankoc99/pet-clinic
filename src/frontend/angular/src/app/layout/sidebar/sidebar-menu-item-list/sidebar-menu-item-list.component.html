@@ -1,5 +1,5 @@
 <ul
-  [class]="'nav nav-treeview ml-' + (1 + parent.depth!)"
+  [class]="'nav nav-treeview ml-' + (1 + parent?.depth!)"
   [style.display]="parent?.isExpanded ? 'block' : 'none'"
 >
   <li class="nav-item" *ngFor="let item of menuItems; index as i">

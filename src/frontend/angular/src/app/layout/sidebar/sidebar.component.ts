@@ -1,8 +1,9 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { EventTypes } from 'src/app/shared/model/event-types';
 import { EventBusService } from 'src/app/shared/services/event-bus.service';
 import { MenuItem } from '../model/menu-item';
+import { MenuOwner } from '../model/menu-owner';
 import { MenuUtils } from '../utils/menu-util';
 
 @Component({
@@ -10,15 +11,25 @@ import { MenuUtils } from '../utils/menu-util';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })
-export class SidebarComponent implements OnInit {
+@Injectable({
+  providedIn: 'root',
+})
+export class SidebarComponent implements OnInit, MenuOwner {
   isCollapsed: boolean = false;
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private eventBusService: EventBusService
   ) {}
 
+  findMenuItemAndParentsByLink(url: string): Partial<MenuItem>[] {
+    return MenuUtils.findMenuItemAndParentsByLink(url, this.rootMenu);
+  }
+
   ngOnInit(): void {
-    MenuUtils.processTreeNode(this.rootMenu, 0, undefined);
+    console.log(
+      '🚀 ~ file: sidebar.component.ts ~ line 30 ~ SidebarComponent ~ ngOnInit ~ this.rootMenu',
+      this.rootMenu
+    );
     this.eventBusService.on(EventTypes.ToggleSideBar, (_: any) => {
       this.isCollapsed = !this.isCollapsed;
       const toRemove = this.isCollapsed ? 'sidebar-collapse' : 'sidebar-mini';
@@ -31,10 +42,9 @@ export class SidebarComponent implements OnInit {
       );
     });
   }
-
-  rootMenu: Partial<MenuItem> = {
+  rootMenuData: Partial<MenuItem> | undefined = {
     sortOrder: 10,
-    text: 'ALL',
+    text: 'Home',
     isExpanded: true,
     children: [
       {
@@ -48,7 +58,7 @@ export class SidebarComponent implements OnInit {
           {
             sortOrder: 10,
             text: 'List Owners',
-            link: 'owners-list',
+            link: '/clinic/owners-list',
             tooltip: 'List All Owners',
             icon: 'fa-solid fa-address-book',
             children: [],
@@ -220,4 +230,9 @@ export class SidebarComponent implements OnInit {
       },
     ],
   };
+  rootMenu: Partial<MenuItem> | undefined = MenuUtils.processTreeNode(
+    this.rootMenuData,
+    0,
+    undefined
+  );
 }

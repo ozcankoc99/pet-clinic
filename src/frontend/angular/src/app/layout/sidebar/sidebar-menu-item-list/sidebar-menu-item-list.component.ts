@@ -8,7 +8,7 @@ import { MenuItem } from '../../model/menu-item';
 })
 export class SidebarMenuItemListComponent implements OnInit {
   @Input() menuItems: Partial<MenuItem>[] = [];
-  @Input() parent: Partial<MenuItem> = {};
+  @Input() parent: Partial<MenuItem> | undefined = {};
   constructor() {}
 
   ngOnInit(): void {}

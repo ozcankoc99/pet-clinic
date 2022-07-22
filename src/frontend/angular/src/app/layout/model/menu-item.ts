@@ -9,6 +9,6 @@ export interface MenuItem {
   isActive: boolean;
   isExpanded: boolean;
   children: Partial<MenuItem>[];
-  parent: Partial<MenuItem>;
+  parent: Partial<MenuItem> | undefined;
   depth: number;
 }

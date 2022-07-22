@@ -18,6 +18,7 @@ import { SidebarMenuItemComponent } from './sidebar/sidebar-menu-item/sidebar-me
 import { ToasterComponent } from './toaster/toaster.component';
 import { ToastComponent } from './toaster/toast/toast.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { MENU_OWNER_INJECTION_TOKEN } from './model/menu-owner';
 
 @NgModule({
   declarations: [
@@ -39,5 +40,8 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     BreadcrumbsComponent,
   ],
   imports: [CommonModule, LayoutRoutingModule],
+  providers: [
+    { provide: MENU_OWNER_INJECTION_TOKEN, useClass: SidebarComponent },
+  ],
 })
 export class LayoutModule {}
