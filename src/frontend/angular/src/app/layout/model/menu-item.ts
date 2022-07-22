@@ -5,6 +5,7 @@ export interface MenuItem {
   link: string;
   icon: string;
   badge: string;
+  badgeClass: string;
   isActive: boolean;
   isExpanded: boolean;
   children: Partial<MenuItem>[];

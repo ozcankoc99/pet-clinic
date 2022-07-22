@@ -4,14 +4,20 @@
   [class.menu-open]="menuItem?.isExpanded"
   [routerLink]="[menuItem.link]"
   (click)="hasChildren() && toggleExpanded(); $event.preventDefault()"
-  ><span class="fas fa-angle-right" *ngIf="hasChildren()"> </span>
+  ><span
+    [class]="'fas fa-angle-' + (menuItem?.isExpanded ? 'right' : 'down')"
+    *ngIf="hasChildren()"
+  >
+  </span>
   <span [class]="menuItem.icon + ' fa-fw'"></span>
   <p>
     {{ menuItem.text }}
 
-    <span *ngIf="menuItem.badge" class="badge badge-info right">{{
-      menuItem.badge
-    }}</span>
+    <span
+      *ngIf="menuItem.badge"
+      [class]="'float-end badge ' + menuItem.badgeClass"
+      >{{ menuItem.badge }}</span
+    >
   </p>
 </a>
 <app-sidebar-menu-item-list

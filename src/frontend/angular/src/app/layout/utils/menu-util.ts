@@ -9,6 +9,7 @@ export class MenuUtils {
     if (node) {
       node.depth = depth;
       node.parent = parent;
+      node.badgeClass = node.badgeClass ?? 'badge-info';
       node.children?.map((x) => this.processTreeNode(x, depth + 1, node));
     }
   }
