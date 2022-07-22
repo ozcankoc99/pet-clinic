@@ -13,6 +13,8 @@ import { TopMenuSearchComponent } from './top-menu/top-menu-search/top-menu-sear
 import { TopMenuNavComponent } from './top-menu/top-menu-nav/top-menu-nav.component';
 import { SidebarLogoComponent } from './sidebar/sidebar-logo/sidebar-logo.component';
 import { SidebarUserInfoComponent } from './sidebar/sidebar-user-info/sidebar-user-info.component';
+import { SidebarMenuItemListComponent } from './sidebar/sidebar-menu-item-list/sidebar-menu-item-list.component';
+import { SidebarMenuItemComponent } from './sidebar/sidebar-menu-item/sidebar-menu-item.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { SidebarUserInfoComponent } from './sidebar/sidebar-user-info/sidebar-us
     TopMenuNavComponent,
     SidebarLogoComponent,
     SidebarUserInfoComponent,
+    SidebarMenuItemListComponent,
+    SidebarMenuItemComponent,
   ],
   imports: [CommonModule, LayoutRoutingModule],
 })
