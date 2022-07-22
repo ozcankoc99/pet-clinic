@@ -15,6 +15,8 @@ import { SidebarLogoComponent } from './sidebar/sidebar-logo/sidebar-logo.compon
 import { SidebarUserInfoComponent } from './sidebar/sidebar-user-info/sidebar-user-info.component';
 import { SidebarMenuItemListComponent } from './sidebar/sidebar-menu-item-list/sidebar-menu-item-list.component';
 import { SidebarMenuItemComponent } from './sidebar/sidebar-menu-item/sidebar-menu-item.component';
+import { ToasterComponent } from './toaster/toaster.component';
+import { ToastComponent } from './toaster/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { SidebarMenuItemComponent } from './sidebar/sidebar-menu-item/sidebar-me
     SidebarUserInfoComponent,
     SidebarMenuItemListComponent,
     SidebarMenuItemComponent,
+    ToasterComponent,
+    ToastComponent,
   ],
   imports: [CommonModule, LayoutRoutingModule],
 })

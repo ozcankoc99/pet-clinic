@@ -1,31 +1,68 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { ToastEvent } from '../model/toast-event';
+import { ToastEventTypes } from '../model/toast-event-types';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ToastService {
-  constructor(private zone: NgZone) {}
-  public success(message: string, duration = 5000) {
-    this.open(message, 'success', duration);
+  toastEvents: Observable<ToastEvent>;
+  private _toastEvents = new Subject<ToastEvent>();
+
+  constructor() {
+    this.toastEvents = this._toastEvents.asObservable();
   }
-  public warn(message: string, duration = 5000) {
-    this.open(message, 'warning', duration);
+
+  /**
+   * Show success toast notification.
+   * @param title Toast title
+   * @param message Toast message
+   */
+  showSuccessToast(title: string, message: string) {
+    this._toastEvents.next({
+      message,
+      title,
+      type: ToastEventTypes.Success,
+    });
   }
-  public info(message: string, duration = 5000) {
-    this.open(message, 'info', duration);
+
+  /**
+   * Show info toast notification.
+   * @param title Toast title
+   * @param message Toast message
+   */
+  showInfoToast(title: string, message: string) {
+    this._toastEvents.next({
+      message,
+      title,
+      type: ToastEventTypes.Info,
+    });
   }
-  public error(message: string, duration = 5000) {
-    this.open(message, 'error', duration);
+
+  /**
+   * Show warning toast notification.
+   * @param title Toast title
+   * @param message Toast message
+   */
+  showWarningToast(title: string, message: string) {
+    this._toastEvents.next({
+      message,
+      title,
+      type: ToastEventTypes.Warning,
+    });
   }
-  open(message: string, type = 'success', duration = 5000) {
-    console.log(
-      `🚀 ~ file: toast.service.ts ~ line 21 ~ ToastService ~ open ~ message: ${message}, type = ${type}, duration = ${duration}`
-    );
-    // this.zone.run(() => {
-    //   this.snackBar.open(message, '', {
-    //     duration,
-    //     panelClass: ['snackbar-' + type],
-    //   });
-    // });
+
+  /**
+   * Show error toast notification.
+   * @param title Toast title
+   * @param message Toast message
+   */
+  showErrorToast(title: string, message: string) {
+    this._toastEvents.next({
+      message,
+      title,
+      type: ToastEventTypes.Error,
+    });
   }
 }

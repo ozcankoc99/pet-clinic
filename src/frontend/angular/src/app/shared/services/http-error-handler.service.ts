@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
 import { Observable, of, empty, throwError } from 'rxjs';
-import { ToastService } from './toast.service';
 import { LogService } from './log.service';
+import { ToastService } from './toast.service';
 
 /** Type of the handleError function returned by HttpErrorHandler.createHandleError */
 export type HandleError = <T>(
@@ -53,7 +53,7 @@ export class HttpErrorHandlerService {
 
       const displayMessage = `${serviceName}: ${operation} failed: ${message}`;
       // TODO: better job of transforming error for user consumption
-      this.toastService.error(displayMessage);
+      this.toastService.showErrorToast('Http Error:', displayMessage);
       console.log(`${serviceName}: ${operation} failed: ${message}`, error);
       // Let the app keep running by returning a safe result.
       if (result) {

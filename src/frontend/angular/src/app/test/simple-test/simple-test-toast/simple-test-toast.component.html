@@ -10,28 +10,48 @@
       <button
         type="button"
         class="btn btn-success"
-        (click)="toastService.success('success')"
+        (click)="
+          toastService.showSuccessToast(
+            'Success toast title',
+            'This is a Success toast message.'
+          )
+        "
       >
         Success
       </button>
       <button
         type="button"
         class="btn btn-danger"
-        (click)="toastService.error('error')"
+        (click)="
+          toastService.showErrorToast(
+            'Error toast title',
+            'This is a Error toast message.'
+          )
+        "
       >
         Danger
       </button>
       <button
         type="button"
         class="btn btn-warning"
-        (click)="toastService.warn('warn')"
+        (click)="
+          toastService.showWarningToast(
+            'Warning toast title',
+            'This is a warning toast message.'
+          )
+        "
       >
         Warning
       </button>
       <button
         type="button"
         class="btn btn-info"
-        (click)="toastService.info('Info')"
+        (click)="
+          toastService.showInfoToast(
+            'Info toast title',
+            'This is a Info toast message.'
+          )
+        "
       >
         Info
       </button>
