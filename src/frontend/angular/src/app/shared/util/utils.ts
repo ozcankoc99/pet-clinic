@@ -2,17 +2,9 @@ import { ToastEvent } from '../model/toast-event';
 
 export class Utils {
   static RemoveElementFromObjectArray(objectArray: any[], item: any) {
-    console.log(
-      '🚀 ~ file: utils.ts ~ line 5 ~ Utils ~ RemoveElementFromObjectArray ~ objectArray',
-      objectArray.length
-    );
     objectArray.forEach((value, index) => {
       if (value == item) objectArray.splice(index, 1);
     });
-    console.log(
-      '🚀 ~ file: utils.ts ~ line 5 ~ Utils ~ RemoveElementFromObjectArray ~ objectArray',
-      objectArray.length
-    );
   }
   public static hasOneOrMoreItems(value: any): boolean {
     return Array.isArray(value) && value.length > 0;
