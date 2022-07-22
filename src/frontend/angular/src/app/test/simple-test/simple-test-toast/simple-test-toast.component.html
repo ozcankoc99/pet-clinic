@@ -1,0 +1,40 @@
+<!-- general form elements -->
+<div class="card card-secondary">
+  <div class="card-header">
+    <h3 class="card-title">Toast Messages</h3>
+  </div>
+  <!-- /.card-header -->
+
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="toastService.success('success')"
+      >
+        Success
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="toastService.error('error')"
+      >
+        Danger
+      </button>
+      <button
+        type="button"
+        class="btn btn-warning"
+        (click)="toastService.warn('warn')"
+      >
+        Warning
+      </button>
+      <button
+        type="button"
+        class="btn btn-info"
+        (click)="toastService.info('Info')"
+      >
+        Info
+      </button>
+    </div>
+  </div>
+</div>

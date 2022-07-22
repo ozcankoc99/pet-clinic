@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastService } from 'src/app/shared/services/toast.service';
 
 @Component({
   selector: 'app-simple-test',
@@ -7,7 +6,7 @@ import { ToastService } from 'src/app/shared/services/toast.service';
   styleUrls: ['./simple-test.component.css'],
 })
 export class SimpleTestComponent implements OnInit {
-  constructor(public toastService: ToastService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 }
