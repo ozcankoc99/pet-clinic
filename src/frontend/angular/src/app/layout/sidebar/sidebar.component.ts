@@ -43,7 +43,7 @@ export class SidebarComponent implements OnInit {
         tooltip: 'Patient Owners',
         link: './',
         icon: 'fa-solid fa-people-group',
-        isExpanded: false,
+        isExpanded: true,
         children: [
           {
             sortOrder: 10,
@@ -77,6 +77,7 @@ export class SidebarComponent implements OnInit {
         tooltip: 'Patients',
         icon: 'fa-solid fa-cat',
         link: './',
+        isExpanded: true,
         children: [
           {
             sortOrder: 10,

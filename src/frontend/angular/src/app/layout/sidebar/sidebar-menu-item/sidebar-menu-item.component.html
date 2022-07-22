@@ -7,7 +7,7 @@
   ><span class="fas fa-angle-right" *ngIf="hasChildren()"> </span>
   <span [class]="menuItem.icon + ' fa-fw'"></span>
   <p>
-    {{ menuItem.text + " - " + menuItem.depth }}
+    {{ menuItem.text }}
 
     <span *ngIf="menuItem.badge" class="badge badge-info right">{{
       menuItem.badge
