@@ -3,6 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { EventTypes } from 'src/app/shared/model/event-types';
 import { EventBusService } from 'src/app/shared/services/event-bus.service';
 import { MenuItem } from '../model/menu-item';
+import { MenuUtils } from '../utils/menu-util';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,6 +18,7 @@ export class SidebarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    MenuUtils.processTreeNode(this.rootMenu, 0, undefined);
     this.eventBusService.on(EventTypes.ToggleSideBar, (_: any) => {
       this.isCollapsed = !this.isCollapsed;
       const toRemove = this.isCollapsed ? 'sidebar-collapse' : 'sidebar-mini';
@@ -33,30 +35,39 @@ export class SidebarComponent implements OnInit {
   rootMenu: Partial<MenuItem> = {
     sortOrder: 10,
     text: 'ALL',
+    isExpanded: true,
     children: [
       {
         sortOrder: 10,
         text: 'Owners',
         tooltip: 'Patient Owners',
-        icon: 'fa-solid fa-address-book',
+        link: './',
+        icon: 'fa-solid fa-people-group',
+        isExpanded: false,
         children: [
           {
             sortOrder: 10,
             text: 'List Owners',
+            link: 'owners-list',
             tooltip: 'List All Owners',
             icon: 'fa-solid fa-address-book',
+            children: [],
           },
           {
             sortOrder: 20,
             text: 'Add Owner',
             tooltip: 'Add a new Owner',
+            link: 'owners-add',
             icon: 'fa-solid fa-plus',
+            children: [],
           },
           {
             sortOrder: 30,
             text: 'Find Owners',
             tooltip: 'Search Owner',
+            link: 'owners-search',
             icon: 'fa-solid fa-magnifying-glass',
+            children: [],
           },
         ],
       },
@@ -65,24 +76,31 @@ export class SidebarComponent implements OnInit {
         text: 'Pets',
         tooltip: 'Patients',
         icon: 'fa-solid fa-cat',
+        link: './',
         children: [
           {
             sortOrder: 10,
             text: 'List Pets',
             tooltip: 'List All Pets',
+            link: 'pet-list',
             icon: 'fa-solid fa-paw',
+            children: [],
           },
           {
             sortOrder: 20,
             text: 'Add Owner',
             tooltip: 'Add a new Pet',
+            link: 'add-pet',
             icon: 'fa-solid fa-circle-plus',
+            children: [],
           },
           {
             sortOrder: 30,
             text: 'Find Pets',
             tooltip: 'Search Owner',
+            link: 'find-pet',
             icon: 'fa-solid fa-magnifying-glass',
+            children: [],
           },
         ],
       },

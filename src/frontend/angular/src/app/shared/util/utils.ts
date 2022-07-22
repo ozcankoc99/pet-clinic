@@ -1,4 +1,8 @@
 export class Utils {
+  public static hasOneOrMoreItems(value: any): boolean {
+    return Array.isArray(value) && value.length > 0;
+  }
+
   public static uuid12(): string {
     function s4() {
       return Math.floor((1 + Math.random()) * 0x10000)

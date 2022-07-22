@@ -1,1 +1,8 @@
-<p>sidebar-menu-item-list works!</p>
+<ul
+  class="nav nav-treeview"
+  [style.display]="parent?.isExpanded ? 'block' : 'none'"
+>
+  <li class="nav-item" *ngFor="let item of menuItems; index as i">
+    <app-sidebar-menu-item [menuItem]="item"></app-sidebar-menu-item>
+  </li>
+</ul>

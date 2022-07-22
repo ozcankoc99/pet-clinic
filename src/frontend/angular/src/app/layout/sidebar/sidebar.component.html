@@ -21,8 +21,17 @@
         </div>
       </div>
     </div>
-
-    <app-sidebar-menu-item>rootMenu</app-sidebar-menu-item>
+    <ul
+      class="nav nav-pills nav-sidebar flex-column"
+      data-widget="treeview"
+      role="menu"
+      data-accordion="false"
+    >
+      <app-sidebar-menu-item-list
+        [parent]="rootMenu"
+        [menuItems]="rootMenu.children!"
+      ></app-sidebar-menu-item-list>
+    </ul>
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul

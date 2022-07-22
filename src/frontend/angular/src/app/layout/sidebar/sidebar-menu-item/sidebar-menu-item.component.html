@@ -1,2 +1,20 @@
-<p>sidebar-menu-item works!</p>
-<app-sidebar-menu-item-list></app-sidebar-menu-item-list>
+<a
+  class="nav-link"
+  [class.active]="menuItem?.isActive"
+  [class.menu-open]="menuItem?.isExpanded"
+  [routerLink]="[menuItem.link]"
+  (click)="hasChildren() && toggleExpanded(); $event.preventDefault()"
+  ><span class="fas fa-angle-right" *ngIf="hasChildren()"> </span>
+  <span [class]="menuItem.icon + ' fa-fw'"></span>
+  <p>
+    {{ menuItem.text + " - " + menuItem.depth }}
+
+    <span *ngIf="menuItem.badge" class="badge badge-info right">{{
+      menuItem.badge
+    }}</span>
+  </p>
+</a>
+<app-sidebar-menu-item-list
+  [parent]="menuItem"
+  [menuItems]="menuItem.children!"
+></app-sidebar-menu-item-list>

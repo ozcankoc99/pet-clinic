@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Optional } from '@angular/core';
+import { MenuItem } from '../../model/menu-item';
 
 @Component({
   selector: 'app-sidebar-menu-item-list',
   templateUrl: './sidebar-menu-item-list.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class SidebarMenuItemListComponent implements OnInit {
+  @Input() menuItems: Partial<MenuItem>[] = [];
+  @Input() parent: Partial<MenuItem> = {};
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
