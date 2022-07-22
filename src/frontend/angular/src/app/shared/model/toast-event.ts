@@ -4,4 +4,5 @@ export interface ToastEvent {
   type: ToastEventTypes;
   title: string;
   message: string;
+  delay: number;
 }

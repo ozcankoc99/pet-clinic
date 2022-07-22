@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { ToastEvent } from 'src/app/shared/model/toast-event';
 import { ToastService } from 'src/app/shared/services/toast.service';
+import { Utils } from 'src/app/shared/util/utils';
 
 @Component({
   selector: 'app-toaster',
@@ -31,14 +32,14 @@ export class ToasterComponent implements OnInit {
         type: toasts.type,
         title: toasts.title,
         message: toasts.message,
+        delay: toasts.delay,
       };
       this.currentToasts.push(currentToast);
       this.cdr.detectChanges();
+      window.setTimeout(() => {
+        Utils.RemoveElementFromObjectArray(this.currentToasts, currentToast);
+        this.cdr.detectChanges();
+      }, currentToast.delay);
     });
-  }
-
-  dispose(index: number) {
-    this.currentToasts.splice(index, 1);
-    this.cdr.detectChanges();
   }
 }

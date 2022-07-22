@@ -53,7 +53,7 @@ export class HttpErrorHandlerService {
 
       const displayMessage = `${serviceName}: ${operation} failed: ${message}`;
       // TODO: better job of transforming error for user consumption
-      this.toastService.showErrorToast('Http Error:', displayMessage);
+      this.toastService.error('Http Error:', displayMessage);
       console.log(`${serviceName}: ${operation} failed: ${message}`, error);
       // Let the app keep running by returning a safe result.
       if (result) {

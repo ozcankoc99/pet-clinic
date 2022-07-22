@@ -14,55 +14,33 @@ export class ToastService {
     this.toastEvents = this._toastEvents.asObservable();
   }
 
-  /**
-   * Show success toast notification.
-   * @param title Toast title
-   * @param message Toast message
-   */
-  showSuccessToast(title: string, message: string) {
-    this._toastEvents.next({
-      message,
-      title,
-      type: ToastEventTypes.Success,
-    });
+  success(title: string, message: string) {
+    this.showToast(title, message, ToastEventTypes.Success);
   }
 
-  /**
-   * Show info toast notification.
-   * @param title Toast title
-   * @param message Toast message
-   */
-  showInfoToast(title: string, message: string) {
-    this._toastEvents.next({
-      message,
-      title,
-      type: ToastEventTypes.Info,
-    });
+  info(title: string, message: string) {
+    this.showToast(title, message, ToastEventTypes.Info);
   }
 
-  /**
-   * Show warning toast notification.
-   * @param title Toast title
-   * @param message Toast message
-   */
-  showWarningToast(title: string, message: string) {
-    this._toastEvents.next({
-      message,
-      title,
-      type: ToastEventTypes.Warning,
-    });
+  warn(title: string, message: string) {
+    this.showToast(title, message, ToastEventTypes.Warning);
   }
 
-  /**
-   * Show error toast notification.
-   * @param title Toast title
-   * @param message Toast message
-   */
-  showErrorToast(title: string, message: string) {
+  error(title: string, message: string) {
+    this.showToast(title, message, ToastEventTypes.Error);
+  }
+
+  showToast(
+    title: string,
+    message: string,
+    type: ToastEventTypes,
+    delay: number = 5000
+  ) {
     this._toastEvents.next({
       message,
       title,
-      type: ToastEventTypes.Error,
+      type,
+      delay,
     });
   }
 }
