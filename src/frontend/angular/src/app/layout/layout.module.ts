@@ -17,6 +17,7 @@ import { SidebarMenuItemListComponent } from './sidebar/sidebar-menu-item-list/s
 import { SidebarMenuItemComponent } from './sidebar/sidebar-menu-item/sidebar-menu-item.component';
 import { ToasterComponent } from './toaster/toaster.component';
 import { ToastComponent } from './toaster/toast/toast.component';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ToastComponent } from './toaster/toast/toast.component';
     SidebarMenuItemComponent,
     ToasterComponent,
     ToastComponent,
+    BreadcrumbsComponent,
   ],
   imports: [CommonModule, LayoutRoutingModule],
 })
